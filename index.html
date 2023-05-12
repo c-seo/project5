@@ -1,0 +1,80 @@
+s<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Quiz</title>
+    <link rel="stylesheet" href="app.css" />
+    <title>chatbot1</title>
+	<script type="text/javascript" src="https://unpkg.com/rivescript@latest/dist/rivescript.min.js"></script>
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.min.js"
+	  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@1.5.0/lib/p5.min.js"></script>
+	
+	<script src="https://cdn.jsdelivr.net/gh/IDMNYU/p5.js-speech@0.0.3/lib/p5.speech.js"></script>
+	<script type="text/javascript" src="sketch.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div id="home" class="page flex-center flex-column ">
+        <h1>Guess The Song By Lyrics!</h1>
+        <button onclick="playGame('')">Play</button>
+        <button onclick="showHighScores()">High Scores</button>
+      </div>
+
+      <div id="game" class="page hidden justify-center flex-column ">
+        <button onClick="navigateTo('home')">Go Home</button>
+        <div id="hud">
+          <h3 id="questionCounter">Question 1/8</h3>
+          <h3 id="score">Score: 0</h3>
+        </div>
+        <h2 id="question">Name</h2>
+        <div class="choice-container">
+          <p class="choice-prefix">A</p>
+          <p class="choice" data-number="1">Choice 1!</p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">B</p>
+          <p class="choice" data-number="2">Choice 2!</p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">C</p>
+          <p class="choice" data-number="3">Choice 3!</p>
+        </div>
+        <div class="choice-container">
+          <p class="choice-prefix">D</p>
+          <p class="choice" data-number="4">Choice 4!</p>
+        </div>
+      </div>
+
+      <div id="end" class="page hidden flex-center flex-column">
+        <h1 class="text-center">Great Job!</h1>
+        <h2 id="finalScore">100</h2>
+        <button onClick="navigateTo('home')">Go Home</button>
+        <form>
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username" />
+          <button
+            type="submit"
+            id="saveScoreBtn"
+            onclick="saveHighScore()"
+            disabled
+          >
+            Save
+          </button>
+        </form>
+      </div>
+
+      <div id="highScores" class="page hidden  flex-center flex-column">
+        <h1 id="finalScore">High Scores</h1>
+        <ul id="highScoresList"></ul>
+        <button onClick="navigateTo('home')">Go Home</button>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
+
